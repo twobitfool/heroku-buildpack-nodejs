@@ -109,9 +109,10 @@ echo "-----> Installing dependencies with npm $NPM_VERSION"
 cd $BUILD_DIR
 run_npm install
 run_npm rebuild
-run_node compile
 
 echo "Dependencies installed" | indent
+
+run_node compile
 
 # repack cache with new assets
 if [ -d $CACHE_TARGET_DIR ]; then
