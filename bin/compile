@@ -26,6 +26,16 @@ run_npm() {
   fi
 }
 
+run_node() {
+  command="$1"
+  HOME="$BUILD_DIR" $VENDORED_NODE/bin/node $command 2>&1 | indent
+
+  if [ "${PIPESTATUS[*]}" != "0 0" ]; then
+    echo " !     Failed when running: node $command"
+    exit 1
+  fi
+}
+
 # clean up leaking environment
 unset GIT_DIR
 
@@ -98,7 +108,7 @@ echo "-----> Installing dependencies with npm $NPM_VERSION"
 cd $BUILD_DIR
 run_npm install
 run_npm rebuild
-run_npm compile
+run_node compile
 
 echo "Dependencies installed" | indent
 
