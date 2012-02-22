@@ -98,6 +98,7 @@ echo "-----> Installing dependencies with npm $NPM_VERSION"
 cd $BUILD_DIR
 run_npm install
 run_npm rebuild
+run_npm compile
 
 echo "Dependencies installed" | indent
 
