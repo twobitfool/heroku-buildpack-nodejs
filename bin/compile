@@ -28,6 +28,7 @@ run_npm() {
 
 run_node() {
   command="$1"
+  echo "-----> Running: node $command"
   HOME="$BUILD_DIR" $VENDORED_NODE/bin/node $command 2>&1 | indent
 
   if [ "${PIPESTATUS[*]}" != "0 0" ]; then
