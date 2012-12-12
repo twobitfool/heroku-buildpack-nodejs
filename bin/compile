@@ -195,9 +195,12 @@ echo "Dependencies installed" | indent
 
 run_node compile
 
+echo "-----> Repacking cache with new assets"
 # repack cache with new assets
 if [ -d $CACHE_TARGET_DIR ]; then
   rm -rf $CACHE_STORE_DIR
   mkdir -p $(dirname $CACHE_STORE_DIR)
   cp -a $CACHE_TARGET_DIR $CACHE_STORE_DIR
 fi
+
+echo "-----> Buildpack compile finished"

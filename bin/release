@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+echo "-----> Buildpack release started"
+
 cat <<EOF
 ---
 config_vars:
   PATH: bin:node_modules/.bin:/usr/local/bin:/usr/bin:/bin
 EOF
+
+echo "-----> Buildpack release finished"
